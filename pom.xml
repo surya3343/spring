@@ -44,14 +44,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<profiles>
-    			<profile>
-        			<id>conf</id>
-        				<build>
-            					<directory>${dir}</directory>
-        				</build>
-    			</profile>
-		</profiles>
+		<directory>${dir}</directory>
 	</build>
 
 </project>
