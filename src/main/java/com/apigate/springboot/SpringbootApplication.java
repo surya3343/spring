@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
 import io.prometheus.client.spring.boot.EnableSpringBootMetricsCollector;
 
-//@EnablePrometheusMetrics
+@EnablePrometheusMetrics
 @SpringBootApplication
 
 public class SpringbootApplication {
