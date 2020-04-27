@@ -25,7 +25,7 @@
   			<version>${metrics.version}</version>
 		</dependency>
 		<dependency>
-  			<group>io.prometheus</group>
+  			<groupId>io.prometheus</groupId>
   			<artifact>simpleclient_common</artifact>
   			<version>${prom.version}</version>
 		</dependency>
