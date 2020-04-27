@@ -16,7 +16,7 @@ import java.lang.annotation.*;
 @Documented
 @EnableMetrics
 @EnablePrometheusScraping
-@Import(PrometheusMetricsConfiguration.class)
+
 
 @EnableSpringBootMetricsCollector
 @EnablePrometheusMetrics
