@@ -24,17 +24,13 @@ pipeline {
 
     stage('mvn clean'){
       steps {
-        ansiColor('xterm') {
           sh 'mvn clean'
-        }
       }
     }
 
     stage('mvn package'){
       steps {
-        ansiColor('xterm') {
           sh 'mvn package'
-        }
       }
     }
 
