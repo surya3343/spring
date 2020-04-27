@@ -7,7 +7,7 @@ import io.prometheus.client.spring.boot.EnableSpringBootMetricsCollector;
 import io.prometheus.client.spring.boot.EnablePrometheusMetrics;
 import io.prometheus.client.spring.boot.EnableSpringBootMetricsCollector;
 
-@EnableSpringBootMetricsCollector
+@EnableSpringBootMetricsCollectorc
 @EnablePrometheusMetrics
 @SpringBootApplication
 
