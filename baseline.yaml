@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: baseline-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deploy: example
+  template:
+    metadata:
+      labels:
+        deploy: example
+    spec:
+      containers:
+        - image: 'us.gcr.io/searce-playground/surya-wordpress:5'
+          name: java
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: baseline-service
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    deploy: example
+  type: LoadBalancer
