@@ -3,7 +3,7 @@ package com.apigate.springboot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
+//@EnablePrometheusMetrics
 @SpringBootApplication
 
 public class SpringbootApplication {
