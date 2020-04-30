@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class HelloWorldController
 {
-@RequestMapping("/")
-public String hello()
-{
-return "Hello springboot";
+@RequestMapping("/", method = RequestMethod.GET)
+public ResponseEntity sendViaResponseEntity() {
+    return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 }
+// public String hello()
+// {
+// return "Hello springboot";
+// }
 }
