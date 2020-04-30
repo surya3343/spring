@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class HelloWorldController
 {
-@RequestMapping("/", method = RequestMethod.GET)
+@RequestMapping("/")
 public ResponseEntity sendViaResponseEntity() {
     return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 }
