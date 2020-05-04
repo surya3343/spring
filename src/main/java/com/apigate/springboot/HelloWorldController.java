@@ -12,7 +12,7 @@ public class HelloWorldController
 {
 @RequestMapping("/")
 public ResponseEntity sendViaResponseEntity() {
-    return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
+    return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
 }
 // public String hello()
 // {
