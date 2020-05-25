@@ -1,54 +1,41 @@
-pipeline {
+node('jenkins-slave'){
+    def issueKey
+    def jiraSite = 'JIRA-apigate'
 
-  agent {
-      label 'jenkins-slave'
-  }
-
-  options {
+    options {
       buildDiscarder(logRotator(numToKeepStr: '10'))
       disableConcurrentBuilds()
-  }
-
-  environment {
-      tag = '${BUILD_NUMBER}'
-
-  }
-
-  stages {
-
-    stage('Checkout') {
-      steps {
-        checkout scm
-      }
     }
 
+    environment {
+      tag = '${BUILD_NUMBER}'   
+    }
+
+    stage('Checkout') {
+      checkout scm
+    }    
+
     stage('mvn clean'){
-      steps {
-          sh 'mvn clean'
-      }
+      sh 'mvn clean'
     }
 
     stage('mvn package'){
-      steps {
-          sh 'mvn package'
-      }
+      sh 'mvn package'
     }
 
     stage ('Build image') {
-        steps {
-            script {
+        script {
             Image = docker.build("searce-playground/surya-wordpress")
-            }
         }
     }
-    
+
     stage ('Add comment to JIRA Ticket'){
       def comment = [ 
         body: 'Testing comment !!' 
       ]
       jiraAddComment site: 'JIRA', idOrKey: 'DEM-1', input: comment
     }
-    
+
     stage ('Push image') {
         steps {
             script {
@@ -56,9 +43,6 @@ pipeline {
                     Image.push(tag)
                 }
             }
-
         }
     }
-
-}
 }
