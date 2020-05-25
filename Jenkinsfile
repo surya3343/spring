@@ -44,7 +44,7 @@ pipeline {
     
     stage ('Add comment to JIRA Ticket'){
       def comment = [ 
-        body: 'Testing !!' 
+        body: 'Testing comment !!' 
       ]
       jiraAddComment site: 'JIRA', idOrKey: 'DEM-1', input: comment
     }
