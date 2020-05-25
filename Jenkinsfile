@@ -41,6 +41,14 @@ pipeline {
             }
         }
     }
+    
+    stage ('Add comment to JIRA Ticket'){
+      def comment = [ 
+        body: 'Testing !!' 
+      ]
+      jiraAddComment site: 'JIRA', idOrKey: 'DEM-1', input: comment
+    }
+    
     stage ('Push image') {
         steps {
             script {
