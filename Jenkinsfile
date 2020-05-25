@@ -32,11 +32,9 @@ node('jenkins-slave'){
     }
 
     stage ('Push image') {
-        steps {
-            script {
-                docker.withRegistry('https://us.gcr.io', 'gcr:searce-playground') {
-                    Image.push(tag)
-                }
+        script {
+            docker.withRegistry('https://us.gcr.io', 'gcr:searce-playground') {
+                Image.push(tag)
             }
         }
     }
