@@ -2,9 +2,9 @@ node('jenkins-slave'){
     def issueKey
     def jiraSite = 'JIRA-apigate'
 
-    environment {
-      tag = '${BUILD_NUMBER}'   
-    }
+    // environment {
+    //   tag = '${BUILD_NUMBER}'   
+    // }
 
     stage('Checkout') {
       checkout scm
@@ -34,7 +34,7 @@ node('jenkins-slave'){
     stage ('Push image') {
         script {
             docker.withRegistry('https://us.gcr.io', 'gcr:searce-playground') {
-                Image.push(${tag})
+                Image.push('${BUILD_NUMBER}')
             }
         }
     }
