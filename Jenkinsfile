@@ -2,11 +2,6 @@ node('jenkins-slave'){
     def issueKey
     def jiraSite = 'JIRA-apigate'
 
-    options {
-      buildDiscarder(logRotator(numToKeepStr: '10'))
-      disableConcurrentBuilds()
-    }
-
     environment {
       tag = '${BUILD_NUMBER}'   
     }
